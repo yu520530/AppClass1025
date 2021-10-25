@@ -3,6 +3,7 @@ package com.example.bmi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -27,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     float h = Float.parseFloat(ed_tall.getText().toString())/100;
                     float w = Float.parseFloat(ed_weight.getText().toString());
-                    float result = w / (h*h);
+                    float result =Math.round(w / (h*h)) ;
                     Toast tos = Toast.makeText(MainActivity.this,String.valueOf(result),Toast.LENGTH_SHORT);
                     tos.setGravity(Gravity.CENTER,0,0);
                     tos.show();
-
+                    Log.d("MainActivity", String.valueOf(result));
                 }
 
             }
